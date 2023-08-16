@@ -39,7 +39,7 @@ app.post("/signup", async (req, res) => {
         }
         catch (err) {
             console.log(err)
-            res.status(500).send("Something went wrong please signup again later",err)
+            res.status(500).send({ message: "Something went wrong please signup again later", error: err })
         }
     });
 })
