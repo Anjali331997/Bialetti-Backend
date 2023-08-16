@@ -4,7 +4,7 @@ require('dotenv').config();
 const authentication = (req, res, next) => {
     const token = req.headers.authorization?.split(" ")[1]
     if (token) {
-        jwt.verify(token, 'Anjali_bialetti' , function (err, decoded) {
+        jwt.verify(token, process.env.SECRET_KEY , function (err, decoded) {
             if (err) {
                 res.status(200).json({ msg: "token not valid" })
             } else {

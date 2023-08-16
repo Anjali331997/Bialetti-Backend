@@ -26,7 +26,6 @@ app.get("/", (req, res) => {
 
 app.post("/signup", async (req, res) => {
     const { fname, lname, email, password } = req.body
-    console.log(res.body)
     bcrypt.hash(password, 3, async function (err, hash) {
         const new_user = new UserModel({
             fname,
@@ -41,7 +40,7 @@ app.post("/signup", async (req, res) => {
         }
         catch (err) {
             console.log(err)
-            res.status(500).send({ "message": "Something went wrong please signup again later", "error": err ,new_user})
+            res.status(500).send({ "message": "Something went wrong please signup again later",new_user})
         }
     });
 })
@@ -59,7 +58,7 @@ app.post("/login", async (req, res) => {
         const hashed_password = user.password
         bcrypt.compare(password, hashed_password, function (err, result) {
             if (result) {
-                let token = jwt.sign({ user_id: user._id }, "Anjali_bialetti");
+                let token = jwt.sign({ user_id: user._id }, process.env.SECRET_KEY);
                 res.status(200).send({ msg: "login successfull", token: token })
             }
             else {
