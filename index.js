@@ -5,7 +5,7 @@ var cors = require('cors');
 require('dotenv').config()
 
 const { connection } = require('./config/db');
-const {UserModel} = require('./models/user.model.js')
+const { UserModel } = require('./models/user.model.js')
 const { authentication } = require('./Authentication/authentication')
 
 const app = express();
@@ -48,20 +48,20 @@ app.post("/signup", async (req, res) => {
 //login
 
 app.post("/login", async (req, res) => {
-    const {email, password} = req.body; 
-    const user = await UserModel.findOne({email})
-    if(!user){
-        res.status(400).send({massage:"User not found! Sign up first"})
+    const { email, password } = req.body;
+    const user = await UserModel.findOne({ email })
+    if (!user) {
+        res.status(400).send({ massage: "User not found! Sign up first" })
     }
-    else{
+    else {
         const hashed_password = user.password
-        bcrypt.compare(password, hashed_password, function(err, result) {
-            if(result){
-                let token = jwt.sign({user_id : user._id}, Anjali-bialetti);
-                res.status(200).send({msg : "login successfull", token : token})
+        bcrypt.compare(password, hashed_password, function (err, result) {
+            if (result) {
+                let token = jwt.sign({ user_id: user._id }, process.env.SECRET_KEY);
+                res.status(200).send({ msg: "login successfull", token: token })
             }
-            else{
-                res.status(400).send({message:"Login failed, Invalid credentials"})
+            else {
+                res.status(400).send({ message: "Login failed, Invalid credentials" })
             }
         });
     }
@@ -77,5 +77,5 @@ app.listen(8000, async () => {
         console.log(error)
     }
 
-    
+
 })
