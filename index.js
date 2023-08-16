@@ -34,6 +34,7 @@ app.post("/signup", async (req, res) => {
             email,
             password: hash
         })
+
         try {
             await new_user.save()
             res.status(200).send({ msg: "sign up successfull" })
@@ -52,7 +53,7 @@ app.post("/login", async (req, res) => {
     const { email, password } = req.body;
     const user = await UserModel.findOne({ email })
     if (!user) {
-        res.status(400).send({ massage: "User not found! Sign up first" })
+        res.status(400).send({ message: "User not found! Sign up first" })
     }
     else {
         const hashed_password = user.password
