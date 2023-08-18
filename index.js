@@ -69,7 +69,7 @@ app.post("/login", async (req, res) => {
 })
 
 
-app.listen(8000, async () => {
+app.listen(8080, async () => {
     console.log("Listening to port 8000")
     try {
         connectToDatabase()
