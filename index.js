@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 var cors = require('cors');
 require('dotenv').config()
 
-const { connection } = require('./config/db');
+const { connectToDatabase } = require('./config/db');
 const { UserModel } = require('./models/user.model.js')
 const { authentication } = require('./Authentication/authentication')
 
@@ -72,8 +72,8 @@ app.post("/login", async (req, res) => {
 app.listen(8000, async () => {
     console.log("Listening to port 8000")
     try {
-        await connection
-        console.log("Connected successfully")
+        connectToDatabase()
+       
     } catch (error) {
         console.log(error)
     }
