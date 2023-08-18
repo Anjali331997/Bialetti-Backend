@@ -1,4 +1,7 @@
 var jwt = require('jsonwebtoken');
+const {UserModel} = require("../models/user.model")
+
+
 require('dotenv').config();
 
 
@@ -14,7 +17,7 @@ const authentication = (req, res, next) => {
                 next()
             }
         })
-        
+
     } else {
         res.send({message:"Invalid credentials"})
     }
