@@ -4,7 +4,7 @@ const { CartModel } = require("../models/cart.model");
 
 const ProductRouter = Router();
 
-ProductRouter.get("/products", async (req, res) => {
+ProductRouter.get("/product", async (req, res) => {
     try {
         const allProducts = await ProductModel.find();
         console.log(allProducts);
