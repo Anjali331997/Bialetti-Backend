@@ -6,7 +6,8 @@ require('dotenv').config()
 
 const { connectToDatabase } = require('./config/db');
 const { UserModel } = require('./models/user.model.js')
-const { authentication } = require('./Authentication/authentication')
+const { authentication } = require('./Authentication/authentication');
+const { ProductRouter } = require('./routes/productroute');
 
 const app = express();
 
@@ -68,6 +69,7 @@ app.post("/login", async (req, res) => {
     }
 })
 
+app.use("/products", authentication, ProductRouter);
 
 app.listen(8080, async () => {
     console.log("Listening to port 8000")
