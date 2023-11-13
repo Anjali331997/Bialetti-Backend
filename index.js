@@ -8,6 +8,8 @@ const { connectToDatabase } = require('./config/db');
 const { UserModel } = require('./models/user.model.js')
 const { authentication } = require('./Authentication/authentication');
 const { ProductRouter } = require('./routes/productroute');
+const {CartRouter} = require('./routes/CartRouter');
+
 
 const app = express();
 
