@@ -21,7 +21,7 @@ app.use(express.json());
 
 
 app.get("/", (req, res) => {
-    res.send({ messgae: "Base Route" })
+    res.send({ messgae: "Base Route for Bialetti" })
 })
 
 
@@ -69,7 +69,7 @@ app.post("/login", async (req, res) => {
     }
 })
 
-app.use("/product", ProductRouter);
+app.use("/products", ProductRouter);
 
 // app.use("/cart" ,authentication,CartRouter)
 
