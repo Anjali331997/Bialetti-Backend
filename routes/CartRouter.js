@@ -19,8 +19,8 @@ CartRouter.get("/", async (req, res) => {
 CartRouter.post("/", async (req, res) => {
     const CartRouter = req.body;
     const id = req.user_id;
-    console.log(CartRouter);
-    console.log(id);
+    // console.log(CartRouter);
+    // console.log(id);
     try {
         const cartCartRouter = new CartModel({
             ...CartRouter,
