@@ -11,7 +11,7 @@ ProductRouter.get("/", async (req, res) => {
         res.status(200).send({allProducts});
        
     } catch (error) {
-        res.status(500).send({msg : "Error getting all Products data"})
+        res.status(500).send({msg : "Error getting all Products data",error})
     }
 })
 
