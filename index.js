@@ -8,12 +8,14 @@ const { connectToDatabase } = require('./config/db');
 const { UserModel } = require('./models/user.model.js')
 const { authentication } = require('./Authentication/authentication');
 const { ProductRouter } = require('./routes/ProductRouter.js');
-const {CartRouter} = require('./routes/CartRouter.js');
+// const {CartRouter} = require('./routes/CartRouter.js');
 
 
 const app = express();
 
-app.use(cors())
+app.use(cors({
+    "origin": "*"
+}))
 
 app.use(express.json());
 

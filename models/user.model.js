@@ -7,12 +7,12 @@ app.use(cors({
 }))
 
 const UserShema = new mongoose.Schema({
-    fname: {type:String,required:true},
-    lname: {type:String,required:true},
-    email: {type:String,required:true},
-    password: {type:String,required:true},
-    cart:{type:Array,default:[]},
-    order:{type:Array,default:[]},
+    fname: { type: String, required: true },
+    lname: { type: String, required: true },
+    email: { type: String, required: true },
+    password: { type: String, required: true },
+    cart: { type: Array, default: [] },
+    order: { type: Array, default: [] },
 },
     {
         timestamps: true
