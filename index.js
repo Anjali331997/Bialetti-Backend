@@ -69,9 +69,9 @@ app.post("/login", async (req, res) => {
     }
 })
 
-// app.use("/products", ProductRouter);
+app.use("/products", ProductRouter);
 
-// app.use("/cart" ,authentication,CartRouter)
+app.use("/cart" ,authentication,CartRouter)
 
 app.listen(8080, async () => {
     console.log("Listening to port 8000")
