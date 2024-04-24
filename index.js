@@ -13,9 +13,7 @@ const {CartRouter} = require('./routes/CartRouter.js');
 
 const app = express();
 
-app.use(cors({
-    "origin": "*"
-}))
+app.use(cors())
 
 app.use(express.json());
 
@@ -81,6 +79,4 @@ app.listen(8080, async () => {
     } catch (error) {
         console.log(error)
     }
-
-
 })

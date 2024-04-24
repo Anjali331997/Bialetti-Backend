@@ -5,7 +5,7 @@ const { ProductModel } = require("../models/product.model");
 const ProductRouter = express.Router();
 
 ProductRouter.get('/test',(req,res)=>{
-    res.send("products routes are working")
+    res.send({message:"products routes are working"})
 })
 
 ProductRouter.get("/all", async (req, res) => {
