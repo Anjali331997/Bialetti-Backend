@@ -74,7 +74,7 @@ app.use("/products", ProductRouter);
 // app.use("/cart" ,authentication,CartRouter)
 
 app.listen(8080, async () => {
-    console.log("Listening to port 8000")
+    console.log("Listening to port 8080")
     try {
         connectToDatabase()
        
